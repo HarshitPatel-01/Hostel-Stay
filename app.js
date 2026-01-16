@@ -111,7 +111,7 @@ app.get("/", (req, res) => {
 // =======================
 // 404 Handler
 // =======================
-app.all("*", (req, res, next) => {
+app.all(/^\/api/, (req, res, next) => {
   next(new ExpressError(404, "Page Not Found"));
 });
 
