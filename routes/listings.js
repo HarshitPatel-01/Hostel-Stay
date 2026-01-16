@@ -9,7 +9,7 @@ const {storage} = require("../cloudConfig.js")
 const upload = multer({storage })
 
 // Models
-const Listing = require("../models/listing");
+const Listing = require("../models/listing.js");
 
 // Auth Middleware
 const { isLoggedIn, isOwner } = require("../middleware/middleware.js");
