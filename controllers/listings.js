@@ -1,4 +1,4 @@
-const Listing = require("../models/listing");
+const Listing = require("../models/listings");
 
 // Index Page - Show all listings
 module.exports.index = async (req, res) => {
