@@ -24,6 +24,8 @@ const userRouter = require("./routes/user");
 // MongoDB Connection
 const dbUrl = process.env.ATLASDB_URL;
 
+// const dbUrl = "mongodb://127.0.0.1:27017/Home-Stay";
+
 mongoose
   .connect(dbUrl)
   .then(() => console.log("Connected to Home-Stay DB"))
@@ -120,7 +122,7 @@ app.use((err, req, res, next) => {
 
 
 // Server (Render Safe)
-
+// =======================
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);

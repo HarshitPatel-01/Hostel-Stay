@@ -1,8 +1,9 @@
 require("dotenv").config({ path: "../.env" });
 const mongoose = require("mongoose");
-const initData = require("../init/data.js");
-const Listing = require("../models/listings");
+const initData = require("./Home-Stay-data.js");
+const Listing = require("../models/HomeListings.js");
 
+// const MONGO_URL = "mongodb://127.0.0.1:27017/Home-Stay";
 const MONGO_URL = process.env.ATLASDB_URL;
 
 const ownerId = new mongoose.Types.ObjectId("69663a3cd68e40db1333dc4a");
@@ -12,17 +13,20 @@ async function seedDB() {
     await mongoose.connect(MONGO_URL);
     console.log("Connected to MongoDB Atlas");
 
+    // Clear old data
     await Listing.deleteMany({});
 
-    const listingsWithOwner = initData.data.map(listing => ({
+    // Home-Stay listings
+    const homeListingsWithOwner = initData.data.map(listing => ({
       ...listing,
       owner: ownerId,
-      reviews: []
+      reviews: [],
+      category: "stay"
     }));
 
-    await Listing.insertMany(listingsWithOwner);
+    await Listing.insertMany(homeListingsWithOwner);
 
-    console.log("Database seeded successfully (Atlas)");
+    console.log("Database seeded successfully Homes");
   } catch (err) {
     console.error("Seeding error:", err);
   } finally {
