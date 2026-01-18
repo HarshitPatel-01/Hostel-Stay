@@ -29,7 +29,7 @@ const sampleBoatListings = [
       "A fast and agile recreational boat built for water sports and high-speed cruising.",
     image: {
       filename: "BoatImage",
-      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQivul6nTyAYWEVUlbP0a5Tg3ddtv0fceeJRg&s",
+      url: "https://yatcowpmedialibrary.nyc3.cdn.digitaloceanspaces.com/wp-content/uploads/2023/06/speed-boat-vs-yacht-guide.jpg",
     },
     price: 12000,
     location: "Dormelletto",
@@ -53,7 +53,7 @@ const sampleBoatListings = [
       "A stable flat-deck boat ideal for relaxing cruises, parties, and calm inland waters.",
     image: {
       filename: "BoatImage",
-      url: "https://images.boatsgroup.com/images/1/87/34/8648734_20221017070951506_1_XLARGE.jpg",
+      url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQukvMSn0xuLRA3HKD-4hmedwIRazfxUd8cQ&s",
     },
     price: 2500,
     location: "Lake Tahoe",
@@ -113,7 +113,7 @@ const sampleBoatListings = [
       "An ultra-premium yacht featuring elegant interiors, crew facilities, and world-class comfort.",
     image: {
       filename: "BoatImage",
-      url: "https://images.unsplash.com/photo-1544551763-ced87e95f06b",
+      url: "https://www.galatiyachts.com/wp-content/uploads/Main-Blog-Photo-1630x928-2025-06-16T135104.534-825x470.jpg",
     },
     price: 15000,
     location: "Monaco",
