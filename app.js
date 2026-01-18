@@ -21,19 +21,16 @@ const listingRouter = require("./routes/listings");
 const reviewRouter = require("./routes/review");
 const userRouter = require("./routes/user");
 
-// =======================
 // MongoDB Connection
-// =======================
 const dbUrl = process.env.ATLASDB_URL;
 
 mongoose
   .connect(dbUrl)
-  .then(() => console.log("✅ Connected to Home-Stay DB"))
-  .catch((err) => console.error("❌ Mongo connection error:", err));
+  .then(() => console.log("Connected to Home-Stay DB"))
+  .catch((err) => console.error(" Mongo connection error:", err));
 
-// =======================
 // View Engine
-// =======================
+
 app.engine("ejs", ejsMate);
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));

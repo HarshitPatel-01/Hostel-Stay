@@ -1,37 +1,34 @@
 const mongoose = require("mongoose");
 const initData = require("../init/data.js");
-const Listing = require("../models/listing");
+const Listing = require("../models/listings");
 
-// 👉 Pick a real user ID from your DB!
-const ownerId = "69663a3cd68e40db1333dc4a";
+const MONGO_URL = "mongodb+srv://officialharshitpatel1_db_user:S64jSoQoQ2rAHxQu@cluster0.qqzwyux.mongodb.net/?appName=Cluster0";
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/Home-Stay";
+// real user ID from DB
+const ownerId = new mongoose.Types.ObjectId("69663a3cd68e40db1333dc4a");
 
 async function seedDB() {
   try {
     await mongoose.connect(MONGO_URL);
-    console.log("Connected to DB");
+    console.log("✅ Connected to DB");
 
-    const count = await Listing.countDocuments();
+    // 🔥 Always clear old data (force reseed)
+    await Listing.deleteMany({});
 
-    if (count === 0) {
-      // Add owner to every seed document
-      const listingsWithOwner = initData.data.map((listing) => ({
-        ...listing,
-        owner: ownerId,
-      }));
+    const listingsWithOwner = initData.data.map((listing) => ({
+      ...listing,
+      owner: ownerId,
+      reviews: [],
+    }));
 
-      await Listing.insertMany(listingsWithOwner);
-      console.log("✅ Database seeded successfully with owner");
-    } else {
-      console.log("⚠️ Data already exists, skipping seeding");
-    }
+    await Listing.insertMany(listingsWithOwner);
+
+    console.log("🌱 Database seeded successfully");
   } catch (err) {
-    console.error(err);
+    console.error("❌ Seeding error:", err);
   } finally {
-    mongoose.connection.close();
+    await mongoose.connection.close();
   }
 }
-console.log("ONE SEED:", initData.data[0]);
 
 seedDB();
