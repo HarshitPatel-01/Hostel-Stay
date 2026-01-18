@@ -1,8 +1,8 @@
-const Listing = require("../models/listings");
+const Listing = require("../models/HomeListings");
 
 // Must be logged in
 module.exports.isLoggedIn = (req, res, next) => {
-  if (!req.isAuthenticated || !req.isAuthenticated()) {
+  if (!req.isAuthenticated()) {
     req.flash("error", "You must be logged in first!");
     return res.redirect("/login");
   }

@@ -1,4 +1,4 @@
-const HomeListing = require("../models/homeListing");
+const HomeListing = require("../models/HomeListings");
 
 // INDEX – show all home listings
 module.exports.index = async (req, res) => {
@@ -6,7 +6,7 @@ module.exports.index = async (req, res) => {
   res.render("listings/index", { allListings });
 };
 
-// SHOW CREATE FORM
+// SHOW CREATE  Home FORM
 module.exports.renderNewForm = (req, res) => {
   res.render("listings/new.ejs");
 };

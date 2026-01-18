@@ -11,8 +11,8 @@ module.exports.listingSchema = Joi.object({
       url: Joi.string().allow("", null),
       filename: Joi.string().allow("", null)
     })
-  }).required()  // <— keep this
-}).unknown(true); // <— IMPORTANT FIX
+  }).required()  
+}).unknown(true); 
 
 
 module.exports.reviewSchema = Joi.object({
@@ -22,7 +22,7 @@ module.exports.reviewSchema = Joi.object({
   }).required(),
 });
 
-// ✔ Flat user schema (Option A)
+
 module.exports.userSchema = Joi.object({
   username: Joi.string().min(3).required(),
   email: Joi.string().email().required(),

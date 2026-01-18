@@ -30,7 +30,7 @@ router.get("/login",UserController.RenderLogin);
 // HANDLE LOGIN
 router.post(
   "/login",
-  passport.authenticate("local", { failureRedirect: "/login", failureFlash: true }),
+  passport.authenticate("local", { failureRedirect: "/login", failureFlash: false }),
   UserController.Login
 );
 

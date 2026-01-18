@@ -149,7 +149,7 @@ const sampleBoatListings = [
       "A powerful jet-propelled boat offering excellent maneuverability and shallow-water operation.",
     image: {
       filename: "BoatImage",
-      url: "https://images.unsplash.com/photo-1549924231-f129b911e442",
+      url: "https://images.unsplash.com/photo-1749867053743-78e1fad3ed87?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8amV0JTIwYm9hdHxlbnwwfHwwfHx8MA%3D%3D",
     },
     price: 4500,
     location: "Dubai",
@@ -209,7 +209,7 @@ const sampleBoatListings = [
       "A popular recreational boat with forward seating, ideal for families and water activities.",
     image: {
       filename: "BoatImage",
-      url: "https://images.unsplash.com/photo-1593529467220-9d721ceb9a78",
+      url: "https://www.freepik.com/premium-photo/boat-moored-sea-against-sky_96166515.htm#fromView=keyword&page=2&position=39&uuid=1002e8c2-cd4a-411f-8196-36e8a87c71d5&query=Boat",
     },
     price: 2700,
     location: "Miami",

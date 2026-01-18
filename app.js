@@ -16,10 +16,14 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user");
 
-// Routes
-const listingRouter = require("./routes/listings");
+// Home Routes
+const homelistingRouter = require("./routes/HomeListings");
 const reviewRouter = require("./routes/review");
 const userRouter = require("./routes/user");
+
+// Boat Routes
+const boatlistingRouter = require("./routes/BoatListings");
+
 
 // MongoDB Connection
 const dbUrl = process.env.ATLASDB_URL;
@@ -95,9 +99,9 @@ app.use((req, res, next) => {
   next();
 });
 
-// Routes
+// Home Routes
 
-app.use("/listings", listingRouter);
+app.use("/listings", homelistingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 
@@ -105,6 +109,10 @@ app.get("/", (req, res) => {
   res.redirect("/listings");
 });
 
+
+//Boat Routes
+
+app.use("/boats",boatlistingRouter);
 
 // 404 Handler
 
@@ -122,7 +130,7 @@ app.use((err, req, res, next) => {
 
 
 // Server (Render Safe)
-// =======================
+
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
