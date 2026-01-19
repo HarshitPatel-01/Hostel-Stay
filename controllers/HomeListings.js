@@ -12,12 +12,18 @@ module.exports.renderNewForm = (req, res) => {
 };
 
 // SHOW ONE HOME LISTING
+// SHOW ONE HOME LISTING
 module.exports.Showlistings = async (req, res) => {
   const { id } = req.params;
 
   const listing = await HomeListing.findById(id)
     .populate("owner")
-    .populate("reviews");
+    .populate({
+      path: "reviews",
+      populate: {
+        path: "author"
+      }
+    });
 
   if (!listing) {
     req.flash("error", "Listing does not exist!");

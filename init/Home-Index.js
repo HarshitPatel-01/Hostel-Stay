@@ -3,8 +3,8 @@ const mongoose = require("mongoose");
 const initData = require("./Home-Stay-data.js");
 const Listing = require("../models/HomeListings.js");
 
-// const MONGO_URL = "mongodb://127.0.0.1:27017/Home-Stay";
-const MONGO_URL = process.env.ATLASDB_URL;
+const MONGO_URL = "mongodb://127.0.0.1:27017/Home-Stay";
+//const MONGO_URL = process.env.ATLASDB_URL;
 
 const ownerId = new mongoose.Types.ObjectId("69663a3cd68e40db1333dc4a");
 

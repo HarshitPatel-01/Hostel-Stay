@@ -11,11 +11,11 @@ const upload = multer({ storage });
 // Auth Middleware
 const { isLoggedIn, isOwner } = require("../middleware/middleware.js");
 
-// Validate  Home Listing Form
+// Validate Home Listing Form
 const validateListing = (req, res, next) => {
-  let { error } = listingSchema.validate(req.body);
+  const { error } = listingSchema.validate(req.body);
   if (error) {
-    let errMsg = error.details.map(el => el.message).join(",");
+    const errMsg = error.details.map(el => el.message).join(",");
     throw new ExpressError(400, errMsg);
   }
   next();
@@ -38,6 +38,14 @@ router.get(
   homeListingController.renderNewForm
 );
 
+// 🔥 EDIT FORM (MUST COME BEFORE :id)
+router.get(
+  "/:id/edit",
+  isLoggedIn,
+  isOwner,
+  wrapAsync(homeListingController.EditPost)
+);
+
 // SHOW + UPDATE + DELETE
 router.route("/:id")
   .get(wrapAsync(homeListingController.Showlistings))
@@ -53,13 +61,5 @@ router.route("/:id")
     isOwner,
     wrapAsync(homeListingController.DeletePost)
   );
-
-// EDIT FORM
-router.get(
-  "/:id/edit",
-  isLoggedIn,
-  isOwner,
-  wrapAsync(homeListingController.EditPost)
-);
 
 module.exports = router;

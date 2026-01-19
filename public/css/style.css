@@ -12,6 +12,7 @@ body {
   flex: 1;
 }
 
+
 /* NAVBAR */
 .navbar {
   height: 5rem;
@@ -166,12 +167,17 @@ h1, h2, h3, h4, h5 {
 }
 
 footer {
-  margin-top: 3rem;
-  padding: 2rem 0;
   border-top: 1px solid #eee;
   text-align: center;
   font-size: .9rem;
   color: #777;
+}
+
+.footer {
+  background-color: #222;
+  color: #aaa;
+  text-align: center;
+  padding: 20px 0;
 }
 
 /* Tight control on card spacing */
@@ -246,3 +252,25 @@ footer {
     border-radius:25px;
     padding: 0.5rem 3rem 0.5rem 3rem;
   }
+
+  .star-rating {
+  direction: rtl;
+  display: inline-flex;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  font-size: 1.8rem;
+  color: #ddd;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.star-rating input:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: #f5b301;
+}

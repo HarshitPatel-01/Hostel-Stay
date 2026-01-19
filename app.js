@@ -21,14 +21,10 @@ const homelistingRouter = require("./routes/HomeListings");
 const reviewRouter = require("./routes/review");
 const userRouter = require("./routes/user");
 
-// Boat Routes
-const boatlistingRouter = require("./routes/BoatListings");
-
-
 // MongoDB Connection
-const dbUrl = process.env.ATLASDB_URL;
+//const dbUrl = process.env.ATLASDB_URL;
 
-// const dbUrl = "mongodb://127.0.0.1:27017/Home-Stay";
+const dbUrl = "mongodb://127.0.0.1:27017/Home-Stay";
 
 mongoose
   .connect(dbUrl)
@@ -109,12 +105,6 @@ app.get("/", (req, res) => {
   res.redirect("/listings");
 });
 
-
-//Boat Routes
-
-app.use("/boats",boatlistingRouter);
-
-// 404 Handler
 
 app.all(/^\/api/, (req, res, next) => {
   next(new ExpressError(404, "Page Not Found"));
