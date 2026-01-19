@@ -252,7 +252,6 @@ footer {
     border-radius:25px;
     padding: 0.5rem 3rem 0.5rem 3rem;
   }
-<<<<<<< HEAD
 
   .star-rating {
   direction: rtl;
@@ -275,5 +274,3 @@ footer {
 .star-rating label:hover ~ label {
   color: #f5b301;
 }
-=======
->>>>>>> c0931052987ae00d04004b73c2cf20905cf2183f
