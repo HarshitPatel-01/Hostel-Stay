@@ -22,9 +22,7 @@ const reviewRouter = require("./routes/review");
 const userRouter = require("./routes/user");
 
 // MongoDB Connection
-//const dbUrl = process.env.ATLASDB_URL;
-
-const dbUrl = "mongodb://127.0.0.1:27017/Home-Stay";
+const dbUrl = process.env.ATLASDB_URL;
 
 mongoose
   .connect(dbUrl)
